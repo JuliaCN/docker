@@ -1,0 +1,31 @@
+Sending build context to Docker daemon  8.704kB
+Step 1/9 : FROM julia:1.0
+ ---> d01386d2e223
+Step 2/9 : COPY install.sh .
+ ---> Using cache
+ ---> c59ad8d06b0f
+Step 3/9 : COPY install.jl .
+ ---> Using cache
+ ---> 8a5ff2448866
+Step 4/9 : COPY test.jl .
+ ---> Using cache
+ ---> 58975d51e474
+Step 5/9 : RUN ./install.sh
+ ---> Using cache
+ ---> 921b5ddb6a7d
+Step 6/9 : RUN julia install.jl
+ ---> Using cache
+ ---> 75815c0ffbe8
+Step 7/9 : RUN julia test.jl
+ ---> Using cache
+ ---> 04d7cb4b44d1
+Step 8/9 : WORKDIR /home
+ ---> Running in 2b264ee56c1a
+Removing intermediate container 2b264ee56c1a
+ ---> ba9067aaabe3
+Step 9/9 : CMD ["/root/.julia/packages/Conda/m7vem/deps/usr/bin/jupyter", "notebook", "--allow-root", "--ip=0.0.0.0", "--NotebookApp.token=''", "--no-browser"]
+ ---> Running in 8406f2ab2302
+Removing intermediate container 8406f2ab2302
+ ---> 35e6666a0f90
+Successfully built 35e6666a0f90
+Successfully tagged juliacn/docker:1.0
